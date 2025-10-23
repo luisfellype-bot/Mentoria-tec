@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+
+    public static void main(String[] args) {
+        // Objeto Scanner para receber a entrada do usuário
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("==================================================");
+        System.out.println("          CONVERSOR DE TEMPERATURA (°C para °F/K) ");
+        System.out.println("==================================================");
+        
+        // Solicita a temperatura em Celsius
+        System.out.print("Digite a temperatura em graus Celsius (°C): ");
+        
+        // Garantir que a entrada seja um número válido
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Entrada inválida. Por favor, digite um valor numérico para a temperatura:");
+            scanner.next(); // Limpa a entrada inválida
+        }
+        
+        double celsius = scanner.nextDouble();
+        scanner.close();
+
+        // 1. Cálculo da Conversão para Fahrenheit
+        // Fórmula: F = (C * 9/5) + 32
+        // Usamos 9.0/5.0 para garantir uma divisão de ponto flutuante.
+        double fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+
+        // 2. Cálculo da Conversão para Kelvin
+        // Fórmula: K = C + 273.15
+        double kelvin = celsius + 273.15;
+
+        // 3. Apresentação dos Resultados
+        System.out.println("\n==================================================");
+        System.out.println("               RESULTADOS DA CONVERSÃO              ");
+        System.out.println("==================================================");
+        
+        // Exibe os resultados no formato solicitado.
+        // Usamos %.2f para formatar com duas casas decimais, ou %.1f se quiser apenas uma.
+        System.out.printf("Temperatura em Celsius:    %.2f °C\n", celsius);
+        System.out.printf("Temperatura em Fahrenheit: %.2f °F\n", fahrenheit);
+        System.out.printf("Temperatura em Kelvin:     %.2f K\n", kelvin);
+        
+        System.out.println("==================================================");
+    }
+}
